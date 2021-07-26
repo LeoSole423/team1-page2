@@ -24,8 +24,13 @@ module.exports.routes = {
   'POST /login':'UserController.login',
   // eslint-disable-next-line no-dupe-keys
   '/hotels': { view: 'pages/hotels' },
+
+  //hotel
   '/newhotel': { view: 'pages/newhotel' },
   'POST /newhotel':'HotelController.newHotel',
+  '/deletehotels/:id': 'HotelController.deleteHotel',
+
+  //guest
   '/newguests': { view: 'pages/newguests' },
   'POST /newguests':'GuestController.newGuest',
 
