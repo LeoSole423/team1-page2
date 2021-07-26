@@ -20,6 +20,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'GET /login': {view: 'pages/login'},
+  'POST /login':'UserController.login',
+  // eslint-disable-next-line no-dupe-keys
 
 
   /***************************************************************************
