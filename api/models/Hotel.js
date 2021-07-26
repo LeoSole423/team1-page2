@@ -12,6 +12,22 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+    name: {
+      type: 'string',
+      required: true,
+    },
+    capacity: {
+      type: 'number',
+      required: true,
+    },
+    garage: {
+      type: 'boolean',
+      required: true,
+    },
+    address: {
+      type: 'string',
+      required: true,
+    },
 
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -22,7 +38,13 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    owner: {
+      model: 'User',
+    },
+    reservations: {
+      collection: 'reservation',
+      via: 'rent'
+    }
   },
 
 };

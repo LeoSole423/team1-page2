@@ -12,7 +12,32 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+    initialDate: {
+      type: 'string',
+      columnType: 'date',
+      required: true,
+    },
+    finalDate: {
+      type: 'string',
+      columnType: 'date',
+      required: true,
+    },
+    paymentMethod: {
+      type: 'string',
+      required: false,
+    },
+    valuePerDay: {
+      type: 'number',
+      required: true,
+    },
+    totalValue: {
+      type: 'number',
+      required: false,
+    },
+    downPayment: {
+      type: 'number',
+      required: false,
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -22,6 +47,12 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    rent: {
+      model: 'Hotel'
+    },
+    customer: {
+      model: 'Guest',
+    }
 
   },
 

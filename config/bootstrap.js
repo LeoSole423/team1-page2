@@ -11,20 +11,16 @@
 
 module.exports.bootstrap = async function() {
 
-  // By convention, this is a good place to set up fake data during development.
-  //
-  // For example:
-  // ```
-  // // Set up fake development data (or if we already have some, avast)
-  // if (await User.count() > 0) {
-  //   return;
-  // }
-  //
-  // await User.createEach([
-  //   { emailAddress: 'ry@example.com', fullName: 'Ryan Dahl', },
-  //   { emailAddress: 'rachael@example.com', fullName: 'Rachael Shaw', },
-  //   // etc.
-  // ]);
-  // ```
+  sails.argon2 = require('argon2');
+  if (await User.count() > 0) {
+    console.log('No Vacia');
+    return;
+  }
 
+  await User.createEach([
+    {
+      email: 'juan@gmail.com',
+      password: await sails.argon2.hash('1234'),
+    },
+  ]);
 };
