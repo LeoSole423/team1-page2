@@ -23,6 +23,11 @@ module.exports.routes = {
   'GET /login': {view: 'pages/login'},
   'POST /login':'UserController.login',
   // eslint-disable-next-line no-dupe-keys
+  '/hotels': { view: 'pages/hotels' },
+  '/newhotel': { view: 'pages/newhotel' },
+  'POST /newhotel':'HotelController.newHotel',
+  '/newguests': { view: 'pages/newguests' },
+  'POST /newguests':'GuestController.newGuest',
 
 
   /***************************************************************************

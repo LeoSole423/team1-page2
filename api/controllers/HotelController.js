@@ -11,7 +11,6 @@ module.exports = {
     let capacity = req.param('capacidad');
     let garage = req.param('garage');
     let address = req.param('direccion');
-
     let Hotels = await Hotel.create({
       name: name,
       capacity: capacity,
