@@ -14,6 +14,8 @@ module.exports = {
     });
     if (user && sails.argon2.verify(user.password, password_taked)) {
       req.session.user = user;
+      var user_hotel = await User.find().populate('Hotels') ;
+      req.session.user_hotel = user_hotel;
       res.redirect('/');
     }
     else {

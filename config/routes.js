@@ -18,7 +18,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
+  '/test':'HotelController.test',
   '/': { view: 'pages/homepage' },
   'GET /login': {view: 'pages/login'},
   'POST /login':'UserController.login',
