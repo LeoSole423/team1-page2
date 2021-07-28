@@ -4,8 +4,21 @@
 
     <div id="homepage" class="row pt-3">
         <% if (req.session.user){ %>
-            <% console.log('homepage') %>
-        <% console.log(hotels) %>
+            <% for (let Hotel of req.session.Hotels) { %>
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex justify-content-center">
+                    <div class="card homeCards my-2 p-2">
+                        <a class="fas faz-times-circle text-danger align-self-end" role="button"
+                           href="/deletehotels/<%- Hotel.id %>"></a>
+                        <h2><%- Hotel.name %> </h2>
+                        <div class="card-body align-middle d-flex flex-column align-items-center">
+                            <a class="btn btn-dark text-white" role="button" href="rental/<%- Hotel.id %>">Ver
+                                Reservas</a>
+                            <a class="btn btn-dark text-white mt-2" href="/newRental/<%- Hotel.id %>"
+                               role="button">Nueva Reserva</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
         <% } else { %>
     </div>
     <div class="pt-2 mt-5 w-100">

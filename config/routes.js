@@ -18,8 +18,9 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-  '/test':'HotelController.test',
-  '/': { view: 'pages/homepage' },
+  '/': { view: 'pages/homepage'},
+  // eslint-disable-next-line no-dupe-keys
+  '/':'HotelController.test',
   'GET /login': {view: 'pages/login'},
   'POST /login':'UserController.login',
   // eslint-disable-next-line no-dupe-keys

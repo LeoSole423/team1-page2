@@ -14,7 +14,6 @@ module.exports = {
     });
     if (user && sails.argon2.verify(user.password, password_taked)) {
       req.session.user = user;
-      res.redirect('/test');
       res.redirect('/');
     }
     else {
