@@ -1,30 +1,34 @@
-<div class="container text-center vh-90">
-
-  <div id="guestst" class="row pt-3">
-    <% if (req.session.user){ %>
-      <% for (let guest of guests) { %>
-        <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex justify-content-center">
-          <div class="card homeCards my-2 p-2">
-            <a class="fas faz-times-circle text-danger align-self-end" role="button"
-               href="/deleteguests/<%- guest.id %>"></a>
-            <h2><%- guest.fullName %> </h2>
-            <h3><%- guest.city %> </h3>
-            <h3><%- guest.members %> </h3>
-            <h3><%- guest.licensePlate %> </h3>
-
-            <div class="card-body align-middle d-flex flex-column align-items-center">
-
-
-
+<div class="container vh-90">
+    <div class="row pt-3">
+        <% for (let reservation of reservations) { %>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+                <div class="card rentalCards p-2 mt-2 mb-2">
+                    <a class="fas fa-times-circle text-danger align-self-end mr-2" name="id" role="button"
+                       href="/deleteReservation/<%- reservation.id %>"></a>
+                    <div class="card-body p-0">
+                        <h5 class="pb-2 text-center border-bottom border-success"><%- reservation.guest.fullName %> </h5>
+                        <div class="row">
+                            <div class="col-7">
+                                <p class="border-bottom border-dark">Desde: </p>
+                                <p class="border-bottom border-dark">Hasta: </p>
+                                <p class="border-bottom border-dark">Forma de pago: </p>
+                                <p class="border-bottom border-dark">Valor por día: </p>
+                                <p class="border-bottom border-dark">Valor total: </p>
+                                <p class="border-bottom border-dark">Seña 20%: </p>
+                            </div>
+                            <div class="col-5 font-weight-bold d-flex flex-column align-items-start pl-0">
+                                <p><%- reservation.initialDate.split('T')[0] %></p>
+                                <p><%- reservation.finalDate.split('T')[0] %></p>
+                                <p><%- reservation.paymentMethod %></p>
+                                <p><%- reservation.valuePerDay %></p>
+                                <p><%- reservation.totalValue %></p>
+                                <p><%- reservation.downPayment %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      <% } %>
-    <% } else { %>
-  </div>
-  <div class="pt-2 mt-5 w-100">
-    <h2 class="pb-5">Inicia sesión para explorar</h2>
-    <a href="/login" type="submit" class="btn btn-dark btn-lg pt-2">Iniciar Sesión</a>
-  </div>
-  <% } %>
+        <% } %>
+    </div>
 </div>
+

@@ -38,16 +38,10 @@ module.exports.routes = {
   '/deleteguests/:id': 'GuestController.deleteGuest',
 
   //reservation
-  '/reservations': {view: 'pages/reservations'},
-  // eslint-disable-next-line no-dupe-keys
-  '/reservations': 'ReservationController.rentals',
-  '/newreservations/:id': {view: 'pages/newreservations'},
-  // eslint-disable-next-line no-dupe-keys
-  'POST /newreservations/id': 'ReservationController.newReservation',
-  // eslint-disable-next-line no-dupe-keys
-//  '/deletereservations/:id': 'ReservationController.deleteReservation',
-
-
+  'GET /newReservation/:id': 'ReservationController.newReservation_guests',
+  'POST /newReservation/:id': 'ReservationController.newReservation',
+  'GET /reservations/:id': 'ReservationController.rentals',
+  '/deleteReservation/:id': 'ReservationController.deleteReservation',
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *
