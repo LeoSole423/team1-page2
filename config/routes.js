@@ -20,7 +20,7 @@ module.exports.routes = {
   ***************************************************************************/
   '/': { view: 'pages/homepage'},
   // eslint-disable-next-line no-dupe-keys
-  '/':'HotelController.test',
+  '/':'HotelController.view_hotels',
   'GET /login': {view: 'pages/login'},
   'POST /login':'UserController.login',
   // eslint-disable-next-line no-dupe-keys

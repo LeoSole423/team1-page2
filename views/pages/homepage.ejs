@@ -4,7 +4,7 @@
 
     <div id="homepage" class="row pt-3">
         <% if (req.session.user){ %>
-            <% for (let Hotel of req.session.Hotels) { %>
+            <% for (let Hotel of hotels) { %>
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex justify-content-center">
                     <div class="card homeCards my-2 p-2">
                         <a class="fas faz-times-circle text-danger align-self-end" role="button"
