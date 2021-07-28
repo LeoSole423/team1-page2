@@ -36,7 +36,7 @@ module.exports = {
     console.log('hola');
     console.log(hotels);
     req.session.Hotels = hotels;
-    return res.view('pages/homepage', hotels  );
+    res.view('pages/homepage', {hotels: hotels}  );
   },
 };
 
