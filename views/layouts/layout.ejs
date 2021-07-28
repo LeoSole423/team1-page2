@@ -49,7 +49,7 @@
                        data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false" role="button">Hoteles</a>
                     <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/hotels">Sucursales</a>
+                        <a class="dropdown-item" href="/hotel">Base de datos</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/newhotel">Nuevo Hotel</a>
                     </div>
@@ -74,6 +74,8 @@
                         <a class="dropdown-item" href="/guest">Base de datos</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/newguests">Nuevo Huesped</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/guests">Huespedes</a>
                     </div>
                 </li>
 
@@ -82,16 +84,9 @@
                 </li>
 
             <% }else{ %>
-                <li class="nav-item active dropdown">
-                    <a class="nav-link dropdown-toggle mx-3" id="navbarDropdown"
-                       data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false" role="button">Hoteles</a>
-                    <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/hotels">Sucursales</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/contact">Contacto</a>
-                    </div>
-                </li>
+                    <li class="nav-item active mx-3">
+                        <a class="nav-link" href="/contact">Contacto</a>
+                    </li>
                 <li class="nav-item  active mx-3">
                     <a class="nav-link" href="/login">Login</a>
                 </li>

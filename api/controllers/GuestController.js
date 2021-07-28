@@ -21,6 +21,12 @@ module.exports = {
 
     res.redirect('/guest');
   },
+
+  viewguest: async function (req, res) {
+    let guests = await Guest.find({}).populate('reservations');
+    res.view('pages/guests', {guests: guests});
+  },
+
   deleteGuest: async function(req,res) {
     let deleteGuest = req.param('id');
     await Guest.destroy({id: deleteGuest});
