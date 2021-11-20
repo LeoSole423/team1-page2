@@ -48,10 +48,12 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     rent: {
-      model: 'Hotel'
+      model: 'Hotel',
+      required: true,
     },
     customer: {
       model: 'Guest',
+      required: true,
     }
 
   },

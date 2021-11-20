@@ -27,8 +27,8 @@ module.exports = {
       totalValue: totalValue,
       downPayment: downPayment,
       rent: alojamiento,
-      guest: guestID
-    });
+      customer: guestID,
+    }).fetch();
 
     console.log(rese)
     res.redirect('/reservations/' + idUrl);
@@ -46,10 +46,6 @@ module.exports = {
   },
 
   rentals: async function (req, res) {
-
-    await Reservation.destroy({customer: null});
-    await Reservation.destroy({rent: null});
-
     let reservations = await Reservation.find({rent: req.params.id}).populate('customer').sort('initialDate ASC');
 
     res.view('pages/reservations', {reservations: reservations});
