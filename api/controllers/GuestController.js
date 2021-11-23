@@ -18,8 +18,7 @@ module.exports = {
       members: members,
       licensePlate: licensePlate,
     });
-
-    res.redirect('/guest');
+    res.redirect('/guests');
   },
 
   viewguest: async function (req, res) {
@@ -31,7 +30,7 @@ module.exports = {
     let deleteGuest = req.param('id');
     await Guest.destroy({id: deleteGuest});
 
-    res.redirect('/guest');
+    res.redirect('/guests');
   }
 };
 
