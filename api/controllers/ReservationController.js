@@ -7,13 +7,11 @@
 
 module.exports = {
 
-  newRental: async function (req, res) {
+  newReservation: async function (req, res) {
     let idUrl = req.param('id');
-
     let initialDate = new Date(req.param('initialDate'));
     let finalDate = new Date(req.param('finalDate'));
     let days = Math.floor((Date.UTC(finalDate.getFullYear(), finalDate.getMonth(), finalDate.getDate()) - Date.UTC(initialDate.getFullYear(), initialDate.getMonth(), initialDate.getDate())) / (1000 * 60 * 60 * 24));
-
     let paymentMethod = req.param('paymentMethod');
     let valuePerDay = req.param('valuePerDay');
     let totalValue = valuePerDay * days;
@@ -21,7 +19,7 @@ module.exports = {
     let alojamiento = req.params.id;
     let guestID = req.param('guestID');
 
-    let rentals = await Reservation.create({
+    let rese = await Reservation.create({
       initialDate: initialDate,
       finalDate: finalDate,
       paymentMethod: paymentMethod,
@@ -29,17 +27,29 @@ module.exports = {
       totalValue: totalValue,
       downPayment: downPayment,
       rent: alojamiento,
-      guest: guestID
-    });
+      customer: guestID,
+    }).fetch();
 
-    res.redirect('/rental/' + idUrl);
+    console.log(rese)
+    res.redirect('/reservations/' + idUrl);
   },
-  deleteReservation: async function (req, res) {
+
+  newReservation_guests: async function (req, res) {
+    let guests = await Guest.find({});
+    res.view('pages/newReservation', {guests: guests});
+  },
+
+    deleteReservation: async function (req, res) {
     let deleteReservation = req.param('id');
-
     await Reservation.destroy({id: deleteReservation});
-
     res.redirect('/');
-  }
+  },
+
+  rentals: async function (req, res) {
+    let reservations = await Reservation.find({rent: req.params.id}).populate('customer').sort('initialDate ASC');
+
+    res.view('pages/reservations', {reservations: reservations});
+  },
+
 };
 

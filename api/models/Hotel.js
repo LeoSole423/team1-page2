@@ -40,6 +40,7 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     owner: {
       model: 'User',
+      required: true,
     },
     reservations: {
       collection: 'reservation',

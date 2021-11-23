@@ -1,13 +1,29 @@
 <div class="container text-center vh-90">
 
-  <h1 class="display-4 p-3 border-bottom border-white">Hotel Costanera</h1>
+    <h1 class="display-4 p-3 border-bottom border-white">Hotel Costanera</h1>
 
-  <div id="homepage" class="row pt-3">
-
-  </div>
-    <div class="pt-2 mt-5 w-100">
-      <h2 class="pb-5">Inicia sesión para explorar</h2>
-
-      <a href="/login" type="submit" class="btn btn-dark btn-lg pt-2">Iniciar Sesión</a>
+    <div id="homepage" class="row pt-3">
+        <% if (req.session.user){ %>
+            <% for (let Hotel of hotels) { %>
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex justify-content-center">
+                    <div class="card homeCards my-2 p-2">
+                        <a class="fas fa-times-circle text-danger align-self-end mr-2" name="id" role="button"
+                           href="/deletehotels/<%- Hotel.id %>"></a>
+                        <h2><%- Hotel.name %> </h2>
+                        <div class="card-body align-middle d-flex flex-column align-items-center">
+                            <a class="btn btn-dark text-white" role="button" href="reservations/<%- Hotel.id %>">Ver
+                                Reservas</a>
+                            <a class="btn btn-dark text-white mt-2" href="/newReservation/<%- Hotel.id %>"
+                               role="button">Nueva Reserva</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
     </div>
+    <div class="pt-2 mt-5 w-100">
+        <h2 class="pb-5">Inicia sesión para explorar</h2>
+        <a href="/login" type="submit" class="btn btn-dark btn-lg pt-2">Iniciar Sesión</a>
+    </div>
+    <% } %>
 </div>

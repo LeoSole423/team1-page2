@@ -6,12 +6,12 @@
  */
 
 module.exports = {
+
   newHotel: async function (req, res) {
     let name = req.param('nombre');
     let capacity = req.param('capacidad');
     let garage = req.param('garage');
     let address = req.param('direccion');
-
     let Hotels = await Hotel.create({
       name: name,
       capacity: capacity,
@@ -26,6 +26,12 @@ module.exports = {
     await Hotel.destroy({id: req.param('id')});
 
     res.redirect('/');
-  }
+  },
+
+  view_hotels: async function (req, res) {
+    let hotels = await Hotel.find({owner: {'!=': null}}).populate('owner');
+    await Hotel.destroy({owner: null});
+    res.view('pages/homepage', {hotels: hotels}  );
+  },
 };
 
